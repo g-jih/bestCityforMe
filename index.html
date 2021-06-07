@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta property="og:title" content="나에게 어울리는 도시 찾기 - 심리테스트">
+        <meta property="og:description" content="나에게 어울리는 도시는 어딜까요?">
+        <meta property="og:type" content="website">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width">
+        <title>나에게 어울리는 도시 찾기</title>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="index.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="site-header">
+                <header>
+                    <a class="title" href="/">🌏나에게 어울리는 도시 찾기🚩</a>
+                    <div class="lang">
+                        <div class="lang-item">
+                            <a>한국어</a>
+                        </div>
+                        <div class="lang-item">
+                            <a>English</a>
+                        </div>
+                        <div class="lang-item">
+                            <a>Deutsch</a>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="content" id="home-box" style="display:block">
+                <div class="home">
+                    <p>나에게 어울리는 도시는 어디일까요?</p>
+                    <div>
+                        내 라이프 스타일과 성격을 바탕으로 내가 살기 좋은 도시를 찾아봐요!
+                    </div>
+                </div>
+                <button class="button-base button-fill" type="button" onClick="startQuiz()">
+                    시작하기
+                </button>
+            </div>
+            <div class="content" id="question-box" style="display:none">
+                <div class="question">
+                    <p id="question-text">모처럼 주어진 자유시간! 뭘 하면서 보내면 좋을까?</p>
+                </div>
+                <div class="answer">
+                    <div class="answer-item" onClick="replaceContents(0)">
+                        <span id="answer0">친구를 만난다.</span>
+                    </div>
+                    <div class="answer-item" onClick="replaceContents(1)">
+                        <span id="answer1">이불 속 고고</span>
+                    </div>
+                    <div class="answer-item" onClick="replaceContents(2)">
+                        <span id="answer2">평소 좋아하던 작가의 전시가 있는 미술관에 간다.</span>
+                    </div>
+                    <div class="answer-item" onClick="replaceContents(3)">
+                        <span id="answer3">이럴 땐 파티에 가서 놀아줘야지!</span>
+                    </div>
+                </div>
+                <button class="button-base button-fill" id="check-result" type="button" style="display:none" onClick="showResult()">
+                    결과 확인
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

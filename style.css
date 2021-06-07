@@ -1,0 +1,93 @@
+body {
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #E6E6FA;
+}
+.site-header {
+    padding: 10px;
+    width: 100%;
+}
+
+.site-header .fixed {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: lightgray;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    flex: 3;
+    padding-left: 20px;
+}
+
+.lang {
+    display: inline-flex;
+    padding-right: 20px;
+}
+
+.lang-item {
+    padding: 5px;
+}
+
+.content {
+    margin: auto;
+    width: 480px;
+    text-align: center;
+}
+
+.home {
+    padding: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.question {
+    padding: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.answer-item {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color:#cecece;
+    background-color: white;
+}
+
+.answer-item:hover {
+    cursor: pointer;
+    color:#7070eb;
+    border-color: #7070eb;
+}
+
+.button-base {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+    border: solid;
+    border-radius: 10px;
+}
+
+.button-fill {
+    border-color: #9999fa;
+    background-color: #9999fa;
+    color: #ffffff;
+}
+
+.button-fill:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}

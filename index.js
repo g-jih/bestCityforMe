@@ -1,26 +1,43 @@
 const questions = [
     "모처럼 주어진 자유시간! 뭘 하면서 보내면 좋을까?",
-    "집에서 30분 거리에 이게 있으면 자주 갈 수 있을텐데..",
-    "슈퍼와의 거리", 
-    "내가 살 곳은 내가 정한다", 
+    "나의 장보기 패턴은?", 
+    "내가 살고 싶은 곳은?", 
+    "오늘은 어린이날~ 어린이는 아니지만 쉬는 날이다! 어디가지?",
+    "금요일 저녁, 나의 약속 장소는?",
+    "대박 로또 2등에 당첨되었다. 당첨금은 7000만원, 이 돈으로 뭘하지?",
+    "A 도시에 처음으로 여행을 왔다. 이제 슬슬 배가 고픈데 어디가서 먹을까",
+    "다시 태어난다면 되고 싶은 직업은?"
 ];
 
 const answers = [
     ["친구를 만난다.", "이불 속 고고", "평소 좋아하던 작가의 전시가 있는 미술관에 간다.", "이럴 땐 파티에 가서 놀아줘야지!"],
+    ["요리는 내 몫이 아니야.. 엎어지면 코 닿을 거리 5분내에 편의점이 있어야 된다.", "필요한 건 그때 그 때 사야지! 10분이내에 대형마트", "냉장고는 채우라고 있는거야. 그치만 자주 장보기는 귀찮다.. 2주에 한 번 코스트코가서 트렁크 가득 채워온다.", "뚜벅이에게 마트는 사치, 배달 필수인 거 아니야?"],
+    ["아파트", "단독주택", "두들리네 마을", "섬에서 고독을 즐기겠어"],
     ["바다! 해변가에서 산책하고 싶다", "산", "놀이공원", "콘서트장"],
-    ["엎어지면 코 닿을 거리 5분내에 편의점이 있어야 돼!!", "10분이내에 대형마트", "차 타고 일주일에 한 번 장보기", "배달 필수인 거 아니야?"],
-    ["아파트", "단독주택", "두들리네 마을", "섬에서 고독을 즐기겠어"]
+    ["곱창집", "한강", "호캉스", "클럽"],
+    ["이게 웬 떡이냐 주식이나 비트코인에 투자한다.", "이 정도 돈이면 집도 못 사는데 비상금으로 저축해둬야지", "핸드폰 바꾸고 싶었는데 잘 됐다. 평소 가지고 싶었던 것들 좀 사고 나머지는 .. 나중에 생각해봐야지", "절반은 저축, 5프로는 여행 경비, 10프로는 투자... 세세하게 사용 계획을 세워서 지출한다."],
+    ["SNS에 검색해보고 가장 추천글이 많은 곳을 선택한다.", "좋은 냄새가 나는데? 내 코를 믿고 눈 앞에 보이는 식당에 들어간다.", "돌아다니다가 봐뒀던 30년 전통의 식당에 찾아간다.", "A 도시에 사는 친구에게 연락해서 추천 받는다."],
+    ["안정적인게 최고다. 정년 보장되는 공무원!", "모험정신이 가득한 내셔널 지오그래픽 사진가, 사자와 아이컨택하는 삶.. 내 로망이야.", "영화를 사랑하는 나, 지금까지 본 영화만해도 셀 수 없이 많다. 다음 생엔 영화 평론가로 다시 태어나야지", "출근 시간도, 퇴근 시간도 내 마음대로~ 프리랜서로 살면서 내 재능을 펼칠거야."]
 ];
 
 const weights = [
-    [7, 1, 4, 10],
-    [4, 1, 7, 10],
-    [10, 4, 1, 7],
-    [10, 4, 7, 1]
+    ["ei", 3, -5, -3, 5],
+    ["jp", 3, -3, -5, 5],
+    ["tf", -3, -5, 5, 3],
+    ["sn", 3, 5, -3, -5],
+    ["ei", 4, -2, -4, 6],
+    ["sn", -6, 2, -2, 6],
+    ["tf", 6, -6, -4, 4],
+    ["jp", 6, -6, 2, -2]
 ];
 
 var currentQuestionNumber = 0;
-var score = 0;
+var score = {
+    "ei": 0, // 외향형, 내향형
+    "sn": 0, // 감각형, 직관형
+    "tf": 0, // 사고형, 감정형
+    "jp": 0 // 판단형, 인식형
+};
 
 function startQuiz() {
     document.getElementById("home-box").style.display="none";
@@ -28,7 +45,8 @@ function startQuiz() {
 }
 
 function replaceContents(num) {
-    score += weights[currentQuestionNumber][num];
+    let questionType = weights[currentQuestionNumber][0];
+    score[questionType] += weights[currentQuestionNumber][num];
     if (currentQuestionNumber == questions.length - 1) {
         document.getElementById("check-result").style.display="block";
     }
@@ -47,13 +65,19 @@ function setNextQuiz() {
 }
 
 function showResult() {
-    if (score <= 16) {
-        window.location.href = "/type/ganghwa";
-    }
-    else if (score <= 29) {
-        window.location.href = "/type/berlin";
-    }
-    else {
-        window.location.href = "/type/seoul";
-    }
+    let type = ""
+
+    if (score["ei"] > 0) type += "e";
+    else type += "i";
+
+    if (score["sn"] > 0) type += "s";
+    else type += "n";
+
+    if (score["tf"] > 0) type += "t";
+    else type += "f";
+
+    if (score["jp"] > 0) type += "j";
+    else type += "p";
+
+    window.location.href = "result.html?mbti=" + type;
 }

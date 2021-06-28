@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta property="og:url" content="https://g-jih.github.io/bestCityforMe/">
+        <meta property="og:title" content="MBTI - 나에게 어울리는 도시 찾기">
+        <meta property="og:description" content="나에게 어울리는 도시는 어딜까요?">
+        <meta property="og:type" content="website">
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width">
+        <title>나에게 어울리는 도시 찾기</title>
+        <link href="style.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="result.js"></script>
+    </head>
+    <body>
+        <header>
+            <a class="title" href="/bestCityforMe">🌏MBTI - 나에게 어울리는 도시 찾기🚩</a>
+            <div class="lang">
+                <div class="lang-item">
+                    <a>한국어</a>
+                </div>
+                <div class="lang-item">
+                    <a>English</a>
+                </div>
+                <div class="lang-item">
+                    <a>Deutsch</a>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="content" id="result-box">
+                <div class="result">
+                    <div class="me">
+                        <span>나의 MBTI 타입은? </span>
+                        <b id="personal-mbti"></b>
+                        <br>
+                        <p style="font-size: 15px;">나에게 어울리는 도시는...</p>
+                        <p style="font-size: 20px;" id="city-name">대전</p>
+                        <img id="city-image" src="images/isfp.JPG" alt="Image not found">
+                        <p id="city-content">
+                            자연재해도 없고 인구도 적당하고 조용하고 평화로운 도시 대전!<br>
+                            커몬come onnnnnnnn
+                        </p>
+                    </div>
+                    <div class="partner">
+                        <span>나와 어울리는 친구는</span>
+                        <b id="partner-mbti">파트너 mbti</b>
+                        <br>
+                        <img id="partner-image" src="images/isfp.jpg" alt="Image not found">
+                        <p id="partner-city">파트너 도시</p>
+                    </div>
+                </div>
+                <div>
+                    <p>친구에게 공유하기</p>
+                    <a href="javascript:shareKakao();"><img id="btn-kakao" src="icon/icon-kakao.png"></img></a>
+                    <a href="javascript:shareFacebook();"><img id="btn-facebook" src="icon/icon-facebook.png"></img></a>
+                    <a href="javascript:shareTwitter();"><img id="btn-twitter" src="icon/icon-twitter.png"></img></a>
+                </div>
+                <button class="button-base button-fill" type="button" onClick="restartQuiz()">
+                    다시하기
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -45,15 +45,20 @@ function startQuiz() {
     document.getElementById("question-box").style.display="block";
 }
 
-
+/**
+ * answer 값 저장
+ */
 function saveAnswer(answerNum) {
     savedAnswers[currentQuestionNumber] = answerNum;
 
     if (currentQuestionNumber == questions.length - 1) {
-        document.getElementById("check-result").style.display="block";
+        //document.getElementById("check-result").style.display="block";
+        showResult();
     }
     else {
+        // 다음 페이지로 이동
         currentQuestionNumber += 1;
+        setProgress();
         setQuiz(currentQuestionNumber);
     }
 }
@@ -64,6 +69,7 @@ function saveAnswer(answerNum) {
 function movePrevious() {
     if (currentQuestionNumber > 0) {
         currentQuestionNumber -= 1;
+        setProgress();
         setQuiz(currentQuestionNumber);
         savedAnswers[currentQuestionNumber] = 0;
     } 
@@ -79,6 +85,14 @@ function setQuiz(quizNumber) {
     document.getElementById("answer1").innerText = answers[quizNumber][1];
     document.getElementById("answer2").innerText = answers[quizNumber][2];
     document.getElementById("answer3").innerText = answers[quizNumber][3];
+}
+
+
+/**
+ * progress 값 변경
+ */
+function setProgress() {
+    document.getElementById("progress-bar").value = (currentQuestionNumber + 1) * 12.5;
 }
 
 function showResult() {

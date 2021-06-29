@@ -52,24 +52,24 @@ header .scroll {
 }
 
 .progress-box {
-    margin-bottom: 30px;
-    color: black;
+    margin-bottom: 20px;
 }
 
 progress {
     width: 100%;
-    color: white;
-    background-color: blue;
-    height: 15px;
+    background: none;
+    height: 20px;
+    border: 2px solid gray; 
+    border-radius: 5px;
 }
 
-.btn-paging {
-    padding: 10px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color:#888888;
-    color: #888888;
+progress::-webkit-progress-bar {
     background-color: white;
+    border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+    background: #7070eb;
 }
 
 .home, .result {
@@ -118,8 +118,8 @@ progress {
 .btn-previous {
     float: left;
     width: 25%;
-    border-color: #9999fa;
-    background-color: #9999fa;
+    border-color: #b9b9b9;
+    background-color: #b9b9b9;
     color: #ffffff;
 }
 

@@ -2,19 +2,19 @@ const cityNameList = {
     "istp" : "대전",
     "isfp" : "강화도",
     "estp" : "서울",
-    "esfp" : "",
-    "intp" : "",
-    "intj" : "",
-    "entp" : "",
-    "entj" : "",
-    "infp" : "",
-    "infj" : "",
-    "enfp" : "",
-    "enfj" : "",
-    "istj" : "",
-    "isfj" : "",
-    "estj" : "",
-    "esfj" : "",
+    "esfp" : "파리",
+    "intp" : "베를린",
+    "intj" : "도쿄",
+    "entp" : "뉴욕",
+    "entj" : "부산",
+    "infp" : "코펜하겐",
+    "infj" : "춘천",
+    "enfp" : "뮌헨",
+    "enfj" : "상하이",
+    "istj" : "프라하",
+    "isfj" : "하노이",
+    "estj" : "모스크바",
+    "esfj" : "발리",
 };
 
 /*const cityContentList = {
@@ -69,11 +69,11 @@ window.onload = function () {
 
     document.getElementById("city-image").src = "images/" + type + ".jpg";
 
-    let cityContent = document.getElementById("city-content");
-    cityContent.innerHTML = cityContentList[type];
+    /*let cityContent = document.getElementById("city-content");
+    cityContent.innerHTML = cityContentList[type];*/
 
     let partnerMbti = document.getElementById("partner-mbti");
-    partnerMbti.innerHTML = partner[type];
+    partnerMbti.innerHTML = partner[type].toUpperCase();
 
     let partnerCity = document.getElementById("partner-city");
     partnerCity.innerHTML = cityNameList[partner[type]] + "에서 같이 살까?";

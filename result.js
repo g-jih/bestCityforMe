@@ -17,7 +17,7 @@ const cityNameList = {
     "esfj" : "",
 };
 
-const cityContentList = {
+/*const cityContentList = {
     "istp" : "자연재해도 없고 인구도 적당하고 조용하고 평화로운 도시 대전! 커몬come onnnnnnnn",
     "isfp" : "혼자가 좋은 당신, 아무도 없는 섬에서 혼자 사는 건 어떨까",
     "estp" : "놀 것, 볼 것, 먹을 것 많은 메트로폴리탄 서울에서 맘껏 즐기면서 살고 싶은 당신.",
@@ -34,7 +34,7 @@ const cityContentList = {
     "isfj" : "",
     "estj" : "",
     "esfj" : "",
-};
+};*/
 
 const partner = {
     "istp" : "esfj",

@@ -77,10 +77,12 @@ header .scroll {
     background-color: white;
 }
 
-.answer-item:hover {
-    cursor: pointer;
-    color:#7070eb;
-    border-color: #7070eb;
+@media (hover:  hover) {
+    .answer-item:hover {
+        cursor: pointer;
+        color:#7070eb;
+        border-color: #7070eb;
+    }
 }
 
 .button-base {
@@ -98,9 +100,11 @@ header .scroll {
     color: #ffffff;
 }
 
-.button-fill:hover {
-    cursor: pointer;
-    opacity: 0.7;
+@media (hover: hover) {
+    .button-fill:hover {
+        cursor: pointer;
+        opacity: 0.7;
+    }
 }
 
 .me {

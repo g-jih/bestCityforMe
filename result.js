@@ -76,7 +76,7 @@ window.onload = function () {
     partnerMbti.innerHTML = partner[type].toUpperCase();
 
     let partnerCity = document.getElementById("partner-city");
-    partnerCity.innerHTML = cityNameList[partner[type]] + "에서 같이 살까?";
+    partnerCity.innerHTML = cityNameList[partner[type]];
 
     document.getElementById("partner-image").src = "images/" + partner[type] + ".jpg";
 };

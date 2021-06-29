@@ -100,11 +100,9 @@ header .scroll {
     color: #ffffff;
 }
 
-@media (hover: hover) {
-    .button-fill:hover {
-        cursor: pointer;
-        opacity: 0.7;
-    }
+.button-fill:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 .me {

@@ -81,3 +81,15 @@ function showResult() {
 
     window.location.href = "result.html?mbti=" + type;
 }
+
+function startTouch(n) {
+    let div = document.getElementById("item" + n.toString());
+    div.style.color = "#7070eb";
+    div.style.borderColor = "#7070eb";
+}
+
+function endTouch(n) {
+    let div = document.getElementById("item" + n.toString());
+    div.style.color = "black";
+    div.style.borderColor = "#cecece";
+}

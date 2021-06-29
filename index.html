@@ -31,31 +31,37 @@
                         내 라이프 스타일과 성격을 바탕으로 내가 살기 좋은 도시를 찾아봐요!
                     </div>
                 </div>
-                <button class="button-base button-fill" type="button" onClick="startQuiz()">
+                <button class="btn-base btn-fill" type="button" onClick="startQuiz()">
                     시작하기
                 </button>
             </div>
             <div class="content" id="question-box" style="display:none">
+                <div class="progress-box">
+                    <progress value="10" max="100"></progress>
+                </div>
                 <div class="question">
                     <p id="question-text">모처럼 주어진 자유시간! 뭘 하면서 보내면 좋을까?</p>
                 </div>
                 <div class="answer">
-                    <div class="answer-item" id="item1" onClick="replaceContents(1)" ontouchstart="startTouch(1)" ontouchend="endTouch(1)">
+                    <div class="answer-item" id="item1" onClick="saveAnswer(1)" ontouchstart="startTouch(1)" ontouchend="endTouch(1)">
                         <span id="answer0">친구를 만난다.</span>
                     </div>
-                    <div class="answer-item" id="item2" onClick="replaceContents(2)" ontouchstart="startTouch(2)" ontouchend="endTouch(2)">
+                    <div class="answer-item" id="item2" onClick="saveAnswer(2)" ontouchstart="startTouch(2)" ontouchend="endTouch(2)">
                         <span id="answer1">이불 속 고고</span>
                     </div>
-                    <div class="answer-item" id="item3" onClick="replaceContents(3)" ontouchstart="startTouch(3)" ontouchend="endTouch(3)">
+                    <div class="answer-item" id="item3" onClick="saveAnswer(3)" ontouchstart="startTouch(3)" ontouchend="endTouch(3)">
                         <span id="answer2">평소 좋아하던 작가의 전시가 있는 미술관에 간다.</span>
                     </div>
-                    <div class="answer-item" id="item4" onClick="replaceContents(4)" ontouchstart="startTouch(4)" ontouchend="endTouch(4)">
+                    <div class="answer-item" id="item4" onClick="saveAnswer(4)" ontouchstart="startTouch(4)" ontouchend="endTouch(4)">
                         <span id="answer3">이럴 땐 파티에 가서 놀아줘야지!</span>
                     </div>
                 </div>
-                <button class="button-base button-fill" id="check-result" type="button" style="display:none" onClick="showResult()">
-                    결과 확인
-                </button>
+                <div>
+                    <button class="btn-base btn-fill" id="check-result" type="button" style="display:none" onClick="showResult()">
+                        결과 확인
+                    </button>
+                    <button class="btn-base btn-previous" onClick="movePrevious()">이전 문제로</button>
+                </div>
             </div>
         </div>
     </body>

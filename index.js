@@ -31,8 +31,9 @@ const weights = [
     ["jp", 6, -6, 2, -2]
 ];
 
-var currentQuestionNumber = 0;
-var score = {
+let currentQuestionNumber = 0;
+let savedAnswers = new Array(questions.length);
+let scores = {
     "ei": 0, // 외향형, 내향형
     "sn": 0, // 감각형, 직관형
     "tf": 0, // 사고형, 감정형
@@ -44,39 +45,62 @@ function startQuiz() {
     document.getElementById("question-box").style.display="block";
 }
 
-function replaceContents(num) {
-    let questionType = weights[currentQuestionNumber][0];
-    score[questionType] += weights[currentQuestionNumber][num];
+
+function saveAnswer(answerNum) {
+    savedAnswers[currentQuestionNumber] = answerNum;
+
     if (currentQuestionNumber == questions.length - 1) {
         document.getElementById("check-result").style.display="block";
     }
     else {
-        setNextQuiz();
+        currentQuestionNumber += 1;
+        setQuiz(currentQuestionNumber);
     }
 }
 
-function setNextQuiz() {
-    currentQuestionNumber++;
-    document.getElementById("question-text").innerText = questions[currentQuestionNumber];
-    document.getElementById("answer0").innerText = answers[currentQuestionNumber][0];
-    document.getElementById("answer1").innerText = answers[currentQuestionNumber][1];
-    document.getElementById("answer2").innerText = answers[currentQuestionNumber][2];
-    document.getElementById("answer3").innerText = answers[currentQuestionNumber][3];
+/**
+ * 이전 페이지로 이동
+ */
+function movePrevious() {
+    if (currentQuestionNumber > 0) {
+        currentQuestionNumber -= 1;
+        setQuiz(currentQuestionNumber);
+        savedAnswers[currentQuestionNumber] = 0;
+    } 
+}
+
+
+/**
+ * 퀴즈 내용 변경
+ */
+function setQuiz(quizNumber) {
+    document.getElementById("question-text").innerText = questions[quizNumber];
+    document.getElementById("answer0").innerText = answers[quizNumber][0];
+    document.getElementById("answer1").innerText = answers[quizNumber][1];
+    document.getElementById("answer2").innerText = answers[quizNumber][2];
+    document.getElementById("answer3").innerText = answers[quizNumber][3];
 }
 
 function showResult() {
-    let type = ""
 
-    if (score["ei"] > 0) type += "e";
+    for (var i=0; i<questions.length; i++) {
+        var questionType = weights[i][0];
+        var answerNum = savedAnswers[i];
+        scores[questionType] += weights[i][answerNum];
+    }
+
+    let type = "";
+
+    if (scores["ei"] > 0) type += "e";
     else type += "i";
 
-    if (score["sn"] > 0) type += "s";
+    if (scores["sn"] > 0) type += "s";
     else type += "n";
 
-    if (score["tf"] > 0) type += "t";
+    if (scores["tf"] > 0) type += "t";
     else type += "f";
 
-    if (score["jp"] > 0) type += "j";
+    if (scores["jp"] > 0) type += "j";
     else type += "p";
 
     window.location.href = "result.html?mbti=" + type;
